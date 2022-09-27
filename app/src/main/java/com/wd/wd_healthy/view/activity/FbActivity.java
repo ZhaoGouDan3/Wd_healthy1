@@ -16,7 +16,7 @@ import com.wd.wd_healthy.model.base.BaseActivity;
 import com.wd.wd_healthy.model.bean.BzmessageBean;
 import com.wd.wd_healthy.model.bean.KsBean;
 import com.wd.wd_healthy.model.bean.SendByqBean;
-import com.wd.wd_healthy.viewModel.KongViewModel;
+import com.wd.wd_healthy.viewModel.SendViewModel;
 
 import java.text.DateFormat;
 import java.util.ArrayList;

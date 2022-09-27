@@ -1,4 +1,4 @@
-package com.wd.wd_healthy.view.activity;
+package com.wd.wd_healthy.viewModel;
 
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
