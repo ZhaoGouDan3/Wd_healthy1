@@ -186,7 +186,8 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                                         Toast.makeText(getContext(), sendEmailBean.getMessage(), Toast.LENGTH_SHORT).show();
                                         if(sendEmailBean.getStatus().equals("0000")){
 //                                            barrageView.addBarrage(new Barrage(editText.getText().toString()));
-
+                                            barrageView.addItem(new DanmakuItem(getActivity(),editText.getText().toString(),barrageView.getWidth()));
+                                            barrageView.show();
                                             editText.setText("");
 //                                            if(barrageView!=null){
 //                                            }
@@ -214,6 +215,7 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                 public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                     super.onScrollStateChanged(recyclerView, newState);
                     scrollCalculatorHelper.onScrollStateChanged(recyclerView, newState);
+
                 }
 
                 @Override
@@ -222,6 +224,8 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                     int firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
                     int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
                     scrollCalculatorHelper.onScroll(recyclerView,firstVisibleItemPosition,lastVisibleItemPosition,1);
+                    barrageView.clear();
+                    barrageView.setVisibility(View.GONE);
                 }
             });
         }else if(o instanceof SendEmailBean){

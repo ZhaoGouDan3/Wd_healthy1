@@ -29,16 +29,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wd_healthy">
         <activity
-            android:name=".view.activity.CsActivity"
-            android:exported="false">
+            android:name=".view.activity.AnimActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.CsActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".view.activity.PhotoViewActivity"
             android:exported="false" />
         <activity
             android:name=".view.activity.DtActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.activity.ChatActivity"
             android:exported="false" />
@@ -147,12 +154,8 @@
             android:exported="false" />
         <activity
             android:name=".view.activity.HomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".view.activity.MainActivity"
