@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dp_20"
+        >
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/right_img"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            app:riv_oval="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:background="@drawable/rigth"
+            android:layout_marginTop="@dimen/dp_20"
+            android:id="@+id/right_mess"
+            android:layout_toLeftOf="@+id/right_img"
+            android:layout_marginRight="@dimen/dp_6"
+            />
+
+        <LinearLayout
+            android:id="@+id/vl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_6"
+            android:layout_toLeftOf="@+id/right_img"
+            android:background="@drawable/rigth"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chatRightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="123456789" />
+
+            <ImageView
+                android:id="@+id/chatRightYy"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_50"
+                android:scaleType="fitXY"
+                android:src="@mipmap/yuyin"
+                android:visibility="visible" />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_toLeftOf="@+id/right_img"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:id="@+id/right_tp"
+            />
+        <ImageView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_toLeftOf="@+id/right_img"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:id="@+id/right_bq"
+            />
+
+    </RelativeLayout>
+</layout>

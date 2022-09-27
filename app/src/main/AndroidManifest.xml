@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wd.wd_healthy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <meta-data
+        android:name="com.huawei.hms.ml.DEPENDENCY"
+        android:value="icr" />
+
+    <application
+        android:name=".model.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Wd_healthy">
+        <activity
+            android:name=".view.activity.CsActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".view.activity.PhotoViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.DtActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".view.activity.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.CurrentWzActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.DetailPlActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.ByqDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.BdBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.RnaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MyBodyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.UpSexyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.UpNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.FbActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MymessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.InviteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.ScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.UpdatePwd2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MySetupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MyGzActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MyByqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MyVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.CaiNaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MyColActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.PocketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.WjxActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.DangAnActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.UserMessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.UpdatePwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.LosePwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:exported="false"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".view.activity.DocDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.DoctorListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.LookMoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.ZbDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.BzDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.MySignActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.HomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.BzAndYpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.YpDetailActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".model.util.JGService"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
