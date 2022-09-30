@@ -29,10 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wd_healthy">
         <activity
-            android:name=".view.activity.GitActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.activity.AnimActivity"
+            android:name=".view.activity.NestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.GitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activity.AnimActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".view.activity.CsActivity"
             android:exported="false" />
@@ -157,7 +160,9 @@
             android:exported="false" />
         <activity
             android:name=".view.activity.HomeActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".view.activity.MainActivity"
             android:exported="false" />

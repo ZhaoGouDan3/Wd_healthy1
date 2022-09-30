@@ -2,21 +2,34 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-       <com.google.android.material.tabs.TabLayout
-           android:layout_width="match_parent"
-           android:layout_height="@dimen/dp_40"
-           android:id="@+id/vdtab"
-           app:tabMode="scrollable"
-           />
+
+
         <com.wd.wd_healthy.model.util.NoSwipeViewPage
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/vdvp"
             />
-    </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:id="@+id/vdtab"
+            app:tabMode="scrollable"
+            android:background="@color/white"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/drop_down"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:id="@+id/dropdown"
+            />
+    </RelativeLayout>
 </layout>

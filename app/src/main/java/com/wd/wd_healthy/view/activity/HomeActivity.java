@@ -10,6 +10,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -69,6 +72,8 @@ public class HomeActivity extends BaseActivity<KongViewModel, ActivityHomeBindin
                     case R.id.rbt3:
                         binding.homeVp.setCurrentItem(2);
                         isChecked=1;
+                        EventBus.getDefault().post("shou");
+                        down();
                         break;
                 }
             }
@@ -87,6 +92,69 @@ public class HomeActivity extends BaseActivity<KongViewModel, ActivityHomeBindin
 
     }
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void anim(String up){
+        Toast.makeText(HomeActivity.this, up, Toast.LENGTH_SHORT).show();
+        if(up.equals("yi")){
+            down();
+        }else{
+            up();
+        }
+    }
+    public void up(){
+        Animation animation1 =new TranslateAnimation(0,0,120,0);
+        animation1.setDuration(2000);
+        binding.bot.startAnimation(animation1);
+        animation1.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                binding.bot.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
+    public void down(){
+        Animation animation1 =new TranslateAnimation(0,0,0,120);
+        animation1.setDuration(2000);
+        binding.bot.startAnimation(animation1);
+        animation1.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                binding.bot.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
     @Override
     public void onChanged(Object o) {
 

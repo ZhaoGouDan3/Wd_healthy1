@@ -1,7 +1,15 @@
 package com.wd.wd_healthy.view.fragment;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -11,7 +19,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,11 +32,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.kd.easybarrage.Barrage;
 import com.kd.easybarrage.BarrageView;
-import com.opendanmaku.DanmakuItem;
-import com.opendanmaku.DanmakuView;
-import com.opendanmaku.IDanmakuItem;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.wd.wd_healthy.R;
@@ -36,14 +47,21 @@ import com.wd.wd_healthy.model.base.BaseFragment2;
 import com.wd.wd_healthy.model.bean.DmBean;
 import com.wd.wd_healthy.model.bean.SendEmailBean;
 import com.wd.wd_healthy.model.bean.VideoBean;
+import com.wd.wd_healthy.model.util.BitmapUtils;
+
+import com.wd.wd_healthy.model.util.DensityUtil;
 import com.wd.wd_healthy.model.util.DpTools;
+
 import com.wd.wd_healthy.model.util.ScrollCalculatorHelper;
 import com.wd.wd_healthy.viewModel.VideoViewModel;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * <p>Wd_healthy</p>
@@ -54,15 +72,18 @@ import java.util.List;
  */
 public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
     private int videoId;
-    private List<IDanmakuItem> list=new ArrayList<>();
-    private DanmakuView barrageView;
+
     private int id=1;
+
     public VideoFrag(int videoId) {
         this.videoId = videoId;
     }
     private boolean isContent=false;
     private boolean issc=false;
     private boolean isdm=false;
+    private List<Barrage> list=new ArrayList<>();
+    private BarrageView bar;
+
     @Override
     public int initlayout() {
         return R.layout.videofrag;
@@ -71,7 +92,15 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
     @Override
     public void initData() {
         viewModel.getVideolivedata(videoId,1,5).observe(this,this);
+        bar= binding.bar;
 
+    }
+
+    @Override
+    protected void stopLoad() {
+        super.stopLoad();
+        GSYVideoManager.releaseAllVideos();
+        bar.destroy();
     }
 
 
@@ -85,32 +114,24 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                 @Override
                 protected void convert(ViewHolder holder, VideoBean.ResultBean resultBean, int position) {
                     id=resultBean.getId();
+
                     StandardGSYVideoPlayer player = holder.getView(R.id.player);
                     player.setUp(resultBean.getShearUrl(),true,"");
                     ImageView vddm = holder.getView(R.id.vddm);
-                     barrageView = holder.getView(R.id.bar);
-                    viewModel.getDm(id).observe(getActivity(), new Observer<DmBean>() {
-                        @Override
-                        public void onChanged(DmBean dmBean) {
-                            for (DmBean.ResultBean bean : dmBean.getResult()) {
-                                list.add(new DanmakuItem(getActivity(),bean.getContent(),barrageView.getWidth()));
-                            }
-//                                    barrageView.setBarrages(list);
-                            barrageView.addItem(list,true);
-                            barrageView.show();
-                        }
-                    });
+                    //////////////////////////////////弹幕
+                    initdm(id);
                     vddm.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(isdm){
-                                barrageView.setVisibility(View.GONE);
+                            if(!isdm){
+                                binding.bar.setVisibility(View.GONE);
                             }else{
-                                barrageView.setVisibility(View.VISIBLE);
+                                binding.bar.setVisibility(View.VISIBLE);
                             }
                             isdm=!isdm;
                         }
                     });
+                    //
                     if(position==0){
                         player.startPlayLogic();
                     }
@@ -185,12 +206,7 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                                     public void onChanged(SendEmailBean sendEmailBean) {
                                         Toast.makeText(getContext(), sendEmailBean.getMessage(), Toast.LENGTH_SHORT).show();
                                         if(sendEmailBean.getStatus().equals("0000")){
-//                                            barrageView.addBarrage(new Barrage(editText.getText().toString()));
-                                            barrageView.addItem(new DanmakuItem(getActivity(),editText.getText().toString(),barrageView.getWidth()));
-                                            barrageView.show();
                                             editText.setText("");
-//                                            if(barrageView!=null){
-//                                            }
                                         }
                                     }
                                 });
@@ -199,6 +215,7 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                             }
                         }
                     });
+
                 }
             });
             binding.vdrv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -210,6 +227,8 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
             binding.vdrv.setOnFlingListener(null);
             PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
             pagerSnapHelper.attachToRecyclerView(binding.vdrv);
+
+
             binding.vdrv.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -224,39 +243,31 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
                     int firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
                     int lastVisibleItemPosition = manager.findLastVisibleItemPosition();
                     scrollCalculatorHelper.onScroll(recyclerView,firstVisibleItemPosition,lastVisibleItemPosition,1);
-                    barrageView.clear();
-                    barrageView.setVisibility(View.GONE);
+
                 }
             });
         }else if(o instanceof SendEmailBean){
             SendEmailBean bean= (SendEmailBean) o;
             showToast(bean.getMessage());
+        }else if(o instanceof DmBean){
+            DmBean bean= (DmBean) o;
+            for (DmBean.ResultBean resultBean : bean.getResult()) {
+               list.add(new Barrage(resultBean.getContent(),R.color.style_color,false));
+            }
+            bar.setBarrages(list);
+
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        GSYVideoManager.onPause();
+    private void initdm(int id) {
+        viewModel.getDm(id).observe(this,this);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        GSYVideoManager.onResume();
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        GSYVideoManager.releaseAllVideos();
-    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
+        GSYVideoManager.releaseAllVideos();
     }
 
     private void sc(int videoId){
@@ -264,6 +275,29 @@ public class VideoFrag extends BaseFragment<VideoViewModel, VideofragBinding> {
     }
     private void delete(int videoId){
         viewModel.getDeleteVd(videoId).observe(this,this);
+    }
+
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        GSYVideoManager.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        GSYVideoManager.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+
     }
 
 

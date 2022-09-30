@@ -107,5 +107,5 @@ dependencies {
     //权限请求
     implementation 'com.hjq:xxpermissions:6.5'
     implementation'com.kd.easybarrage:library:0.0.1'
-    implementation 'com.linsea:opendanmaku:1.0.0@aar'
+
 }
