@@ -107,5 +107,6 @@ dependencies {
     //权限请求
     implementation 'com.hjq:xxpermissions:6.5'
     implementation'com.kd.easybarrage:library:0.0.1'
-
+    implementation 'me.jessyan:autosize:1.1.2'
+    api 'me.jessyan:autosize:1.1.2'
 }

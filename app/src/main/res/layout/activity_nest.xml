@@ -14,7 +14,7 @@
             >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_200"
+                android:layout_height="200dp"
                 android:orientation="vertical"
                 >
                 <TextView
@@ -22,18 +22,17 @@
                     android:layout_height="wrap_content"
                     android:text="top"
                     android:layout_gravity="center"
-                    android:textSize="@dimen/dp_100"
+                    android:textSize="100sp"
                     />
-
             </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
+            <com.wd.wd_healthy.model.util.SlideRecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rv"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_200"
+                android:layout_height="200dp"
                 android:orientation="vertical"
                 >
                 <TextView
