@@ -109,4 +109,5 @@ dependencies {
     implementation'com.kd.easybarrage:library:0.0.1'
     implementation 'me.jessyan:autosize:1.1.2'
     api 'me.jessyan:autosize:1.1.2'
+    implementation 'com.yanzhenjie:recyclerview-swipe:1.1.4'
 }

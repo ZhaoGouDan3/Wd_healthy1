@@ -25,6 +25,7 @@ import com.wd.wd_healthy.model.bean.RmBean;
 import com.wd.wd_healthy.model.bean.MyByqBean;
 import com.wd.wd_healthy.model.bean.SendByqBean;
 import com.wd.wd_healthy.model.bean.SendEmailBean;
+import com.wd.wd_healthy.model.bean.ShouSouBean;
 import com.wd.wd_healthy.model.bean.TabBean;
 import com.wd.wd_healthy.model.bean.TodaySignBean;
 import com.wd.wd_healthy.model.bean.TxBean;
@@ -200,4 +201,6 @@ public interface ApiService {
 
     @GET("health/user/video/v1/findVideoCommentList")
     Observable<DmBean> getDm(@Query("videoId") int videoId);
+    @GET("health/share/v1/homePageSearch")
+    Observable<ShouSouBean> getss(@Query("keyWord") String keyWord);
 }

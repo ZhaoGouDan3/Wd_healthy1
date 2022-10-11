@@ -26,9 +26,7 @@
             android:layout_height="@dimen/dp_40"
             android:layout_below="@+id/xb"
             android:orientation="horizontal"
-
             >
-
             <Button
                 android:layout_width="@dimen/dp_4"
                 android:layout_height="@dimen/dp_25"
@@ -230,7 +228,7 @@
             android:layout_marginTop="@dimen/dp_0_1" />
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_30"
+            android:layout_height="@dimen/dp_100"
             android:layout_below="@+id/frag1_vp"
             android:layout_marginTop="@dimen/dp_12"
             >

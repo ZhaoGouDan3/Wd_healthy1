@@ -1,5 +1,6 @@
 package com.wd.wd_healthy.view.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,6 +27,12 @@ public class SearchActivity extends BaseActivity<SearchViewModel, ActivitySearch
     @Override
     public void initData() {
         viewModel.getLiveData().observe(this,this);
+        binding.search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchActivity.this,SouTiaoMainActivity.class).putExtra("tiaoshu",binding.searched2.getText().toString()));
+            }
+        });
     }
 
     @Override

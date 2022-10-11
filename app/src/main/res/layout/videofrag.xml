@@ -11,13 +11,13 @@
             android:layout_height="match_parent"
             android:id="@+id/vdrv"
             />
+
         <com.kd.easybarrage.BarrageView
+            android:id="@+id/bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/bar"
-            app:random_color="true"
-            app:line_height="@dimen/dp_20"
             android:maxLength="7"
-            />
+            app:line_height="@dimen/dp_20"
+            app:random_color="true" />
     </RelativeLayout>
 </layout>

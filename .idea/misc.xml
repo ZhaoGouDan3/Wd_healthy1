@@ -33,6 +33,7 @@
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/drawable/textback.xml" value="0.20925925925925926" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/drawable/txback.xml" value="0.14537037037037037" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/drawable/verticalstyle.xml" value="0.29259259259259257" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_all_app.xml" value="0.19519927536231885" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_anim.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_bd_bank.xml" value="0.19635416666666666" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_byq_detail.xml" value="0.27247579529737204" />
@@ -71,6 +72,7 @@
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_rna.xml" value="0.17553191489361702" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_screen.xml" value="0.17603850050658562" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_search.xml" value="0.26481481481481484" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_sou_tiao_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_tx_view_model.xml" value="0.2558876811594203" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_up_name.xml" value="0.14175724637681159" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_up_sexy.xml" value="0.4185185185185185" />
@@ -79,6 +81,7 @@
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_user_mess.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_wjx.xml" value="0.1757852077001013" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/activity_zb_detail.xml" value="0.1757852077001013" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/allapp.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/bqitem.xml" value="0.17654508611955422" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/byqfrag.xml" value="0.19635416666666666" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/byqitem.xml" value="0.22" />
@@ -95,7 +98,7 @@
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/gzitem.xml" value="0.3342541436464088" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/homefrag.xml" value="0.1757852077001013" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/homeitem1.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/homeitem2.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/homeitem2.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/item.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/item_gallery.xml" value="0.1757852077001013" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/left.xml" value="0.8235294117647058" />
@@ -107,6 +110,9 @@
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/scbyqitem.xml" value="0.32592592592592595" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/scvp.xml" value="0.1322463768115942" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/sicklistitem.xml" value="0.31179775280898875" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/souyaobu.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/souyibu.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/souzhengbu.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/start1.xml" value="0.1757852077001013" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/start2.xml" value="0.1757852077001013" />
         <entry key="..\:/AndroidStudioProjects/Wd_healthy/app/src/main/res/layout/start3.xml" value="0.1757852077001013" />
